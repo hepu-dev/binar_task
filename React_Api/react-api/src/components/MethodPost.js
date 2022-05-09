@@ -6,6 +6,7 @@ function MethodPost(){
     const [userID, setUserId] = useState("");
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
+    const [post, setPost] = useState("")
 
 
     const submitHandler = (e) =>{
@@ -17,6 +18,14 @@ function MethodPost(){
                 Headers: {"Content-type": "application/json; charset=UTF-8"},
             })
             .then((res)=>{console.log(res);})
+            .then((Response)=> Response.JSON())
+            .then((JSON)=> console.log(JSON));
+
+        axios
+            .get("https://jsonplaceholder.typicode.com/posts")
+                .then ((Response)=>{
+                    setPost(Response.data)
+                })
     };
 
     return (
@@ -47,6 +56,11 @@ function MethodPost(){
                 </div>
                 <button type="submit">Add</button>
             </form>
+            <li>
+                {post.title}
+                {post.userID}
+                {post.body}
+            </li>
         </div>
     )
 }
