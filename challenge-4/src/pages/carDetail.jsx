@@ -82,6 +82,11 @@ function CarDetails() {
                                     </div>
                                 </div>
                             </div>
+                            <div className=" d-flex align-items-end justify-content-end">
+                                <Button type="button" className="btn choice-btn w-auto fw-bold mt-4 mb-1">
+                                    Lanjutkan Pembayaran
+                                </Button>
+                            </div>
                         </Col>
                         
                         {dataCar.map((item) => {
